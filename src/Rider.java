@@ -1,6 +1,6 @@
 class Rider extends Thread {
 
-    public static int waitingRider = 0;
+    public static int waiting = 0;
     private int RiderId;
 
     Rider(int RiderId) {
@@ -10,7 +10,7 @@ class Rider extends Thread {
     public void run() {
         try {
             Main.mutex.acquire();
-            Rider.waitingRider += 1;
+            Rider.waiting += 1;
             Main.mutex.release();
 
             System.out.println("Rider " + RiderId + " arrived");
